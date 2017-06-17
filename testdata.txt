@@ -1,0 +1,1 @@
+I am testing the stopwords. I am filtering the stopwords and lammetizing. Then I am amking a graph of the words based on the 2-gram approach.
