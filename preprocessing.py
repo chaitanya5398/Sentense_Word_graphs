@@ -32,6 +32,7 @@ for j in sentense_tokens:
             l = lemmatizer.lemmatize(l)
             if l not in stop_words:
                 tmp.append(l)
+    tmp = list(set(tmp))
     sentense_list.append(tmp)
 
 print "The removed snetense words."
@@ -45,7 +46,8 @@ for l in sentense_list:
 for j in word_tokens:
     p = lemmatizer.lemmatize(j)
     lemmated_words.append(p)
-
+lemmated_words = list(set(lemmated_words))
+    
 #For removing the stop words.
 for w in lemmated_words:
     if w not in stop_words:

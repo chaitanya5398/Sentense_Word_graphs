@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 G = nx.Graph()
 word_set = set(filtered_words)
 word_dict = {}
+node_labels = {}
 
 cnt=0
 
@@ -33,10 +34,15 @@ for j in range(len(filtered_words) - 1):
     edge_tuples.append((word_dict[filtered_words[j]]+1,word_dict[filtered_words[j+1]]+1))
 
 #adding nodes and edges
-G.add_nodes_from(nodes)
+for n in nodes:
+    G.add_node(n)
+    node_labels[n] = n
+    
 for j in edge_tuples:
     G.add_edge(*j)
 
 #Plotting the graph.
-nx.draw(G)
+pos = nx.circular_layout(G)
+nx.draw(G,pos)
+nx.draw_networkx_labels(G,pos,node_labels)
 plt.show()
